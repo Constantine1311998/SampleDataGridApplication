@@ -1,0 +1,104 @@
+﻿<Window x:Class="SampleDataGridApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:conv="clr-namespace:SampleDataGridApplication.Converters"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <!--#region Window Resource Declarion Begin-->
+    <Window.Resources>
+        <Image x:Key="DeleteBtn" Source="Resource/DeleteBtn.png" />
+        <conv:TextBoxMultiConverter x:Key="TextBoxMultiConverter" />
+    </Window.Resources>
+    <!--#endregion Window Resource Declarion End-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <!--#region DataGrid Begining -->
+        <DataGrid x:Name="MyDataGrid" Grid.Row="0" SelectedItem="{Binding FilePath}"
+                  ItemsSource="{Binding DataGridFilePaths}"
+                  RowStyle="{StaticResource CommonDataGridRowStyle}"
+                  CellStyle="{StaticResource CommonDataGridCellStyle}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  Margin="5">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="File Paths" Width="4*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox
+                                x:Name="filePathTxtBox"
+                                     LostFocus="TextBox_LostFocus"
+                                     Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CanEdit}" Value="true">
+                                                <Setter Property="Background" Value="LightYellow" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding CanEdit}" Value="false">
+                                                <Setter Property="Background" Value="Transparent" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                                <TextBox.IsReadOnly>
+                                    <MultiBinding Converter="{StaticResource TextBoxMultiConverter}">
+                                        <Binding Path="CanEdit" UpdateSourceTrigger="PropertyChanged" />
+                                        <Binding ElementName="filePathTxtBox" />
+                                    </MultiBinding>
+                                </TextBox.IsReadOnly>
+                            </TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Delete Button">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button   Height="40" Width="40"
+                                      Command="{Binding Path=DataContext.DeleteButtonClickCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                      CommandParameter="{Binding}">
+                                <Button.ContentTemplate>
+                                    <DataTemplate>
+                                        <Image Source="Resource/delete.png"></Image>
+                                    </DataTemplate>
+                                </Button.ContentTemplate>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Edit Button">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button   Height="40" Width="40"
+                                      Command="{Binding Path=DataContext.EditButtonClickCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                      CommandParameter="{Binding}">
+                                <Button.ContentTemplate>
+                                    <DataTemplate>
+                                        <Image Source="Resource/edit.png"></Image>
+                                    </DataTemplate>
+                                </Button.ContentTemplate>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--#endregion DataGrid Ending -->
+        <!--#region Save Button Begining -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="5">
+            <Button Height="40" Width="40" Command="{Binding SaveButtonClickCommand}">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <Image Source="Resource/diskette.png"></Image>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </StackPanel>
+        <!--#endregion Save Button Ending -->
+    </Grid>
+</Window>

@@ -26,12 +26,13 @@
                   CanUserAddRows="False"
                   Margin="5">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="File Paths" Width="4*">
+                <DataGridTemplateColumn CellStyle="{StaticResource CommonDataGridCellStyle}" Header="File Paths" Width="4*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBox
                                 x:Name="filePathTxtBox"
                                      LostFocus="TextBox_LostFocus"
+                                     KeyDown="filePathTxtBox_KeyDown"
                                      Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}">
                                 <TextBox.Style>
                                     <Style TargetType="TextBox">
@@ -60,6 +61,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button   Height="40" Width="40"
+                                      Style="{StaticResource CommonButtonStyle}"
                                       Command="{Binding Path=DataContext.DeleteButtonClickCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
                                       CommandParameter="{Binding}">
                                 <Button.ContentTemplate>
@@ -75,6 +77,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button   Height="40" Width="40"
+                                      Style="{StaticResource CommonButtonStyle}"
                                       Command="{Binding Path=DataContext.EditButtonClickCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
                                       CommandParameter="{Binding}">
                                 <Button.ContentTemplate>
@@ -91,7 +94,7 @@
         <!--#endregion DataGrid Ending -->
         <!--#region Save Button Begining -->
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="5">
-            <Button Height="40" Width="40" Command="{Binding SaveButtonClickCommand}">
+            <Button Template="{DynamicResource CommonButtonTemplateModified}" Height="40" Width="40" Style="{StaticResource CommonButtonStyle}" Command="{Binding SaveButtonClickCommand}">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <Image Source="Resource/diskette.png"></Image>

@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace SampleDataGridApplication.ViewModels
@@ -96,7 +97,10 @@ namespace SampleDataGridApplication.ViewModels
 
         private void EditCell(object param)
         {
-            FilePath.CanEdit = true;
+            if(param is DataGridFilePaths path)
+            {
+                path.CanEdit = true;
+            }
         }
 
         private void DeleteCurrentRow(object param)

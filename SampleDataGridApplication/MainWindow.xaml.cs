@@ -1,4 +1,5 @@
-﻿using SampleDataGridApplication.ViewModels;
+﻿using AssistantLibrary;
+using System;
 using System.Windows;
 
 namespace SampleDataGridApplication
@@ -11,13 +12,13 @@ namespace SampleDataGridApplication
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainViewModel();
+            this.MasterButton.Click += MasterButtonClick;
         }
 
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        private void MasterButtonClick(object sender, RoutedEventArgs e)
         {
-            var vm = this.DataContext as MainViewModel;
-            vm.LostFocusCommand.Execute(sender);
+           PromptWindow window = new PromptWindow();
+            window.ShowDialog();
         }
     }
 }

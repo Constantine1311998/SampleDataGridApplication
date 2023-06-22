@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleDataGridApplication", "SampleDataGridApplication\SampleDataGridApplication.csproj", "{160FF3A2-706F-46DF-BD6B-E2EFD4766A42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssistantLibrary", "AssistantLibrary\AssistantLibrary.csproj", "{A181AD55-94BD-440E-859E-78D81BC491C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterProgram", "MasterProgram\MasterProgram.csproj", "{FF4346E1-25FB-420A-8774-DC4E5E242386}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{160FF3A2-706F-46DF-BD6B-E2EFD4766A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{160FF3A2-706F-46DF-BD6B-E2EFD4766A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{160FF3A2-706F-46DF-BD6B-E2EFD4766A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{160FF3A2-706F-46DF-BD6B-E2EFD4766A42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A181AD55-94BD-440E-859E-78D81BC491C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A181AD55-94BD-440E-859E-78D81BC491C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A181AD55-94BD-440E-859E-78D81BC491C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A181AD55-94BD-440E-859E-78D81BC491C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF4346E1-25FB-420A-8774-DC4E5E242386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF4346E1-25FB-420A-8774-DC4E5E242386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF4346E1-25FB-420A-8774-DC4E5E242386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF4346E1-25FB-420A-8774-DC4E5E242386}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

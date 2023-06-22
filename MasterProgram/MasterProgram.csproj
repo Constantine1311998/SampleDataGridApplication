@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{160FF3A2-706F-46DF-BD6B-E2EFD4766A42}</ProjectGuid>
+    <ProjectGuid>{FF4346E1-25FB-420A-8774-DC4E5E242386}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SampleDataGridApplication</RootNamespace>
-    <AssemblyName>SampleDataGridApplication</AssemblyName>
+    <RootNamespace>MasterProgram</RootNamespace>
+    <AssemblyName>MasterProgram</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,9 +33,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>SampleDataGridApplication.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
